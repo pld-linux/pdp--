@@ -1,0 +1,22 @@
+--- pdp++-2.0a/pdp++/src/pdp/pdpshell.cc~	Fri Feb 18 03:23:36 2000
++++ pdp++-2.0a/pdp++/src/pdp/pdpshell.cc	Sun Apr 30 22:00:54 2000
+@@ -1273,7 +1273,7 @@
+   
+   taMisc::Register_Cleanup((SIGNAL_PROC_FUN_TYPE) SaveRecoverFile);
+ 
+-  String pdp_dir = "/usr/local/pdp++"; // default pdp home directory
++  String pdp_dir = PDPDESTDIR; // default pdp home directory
+   char* pdp_dir_env = getenv("PDPDIR");
+   if(pdp_dir_env != NULL)
+     pdp_dir = pdp_dir_env;
+--- pdp++-2.0a/pdp++/src/css/css_builtin.cc~	Sun Apr 30 21:46:00 2000
++++ pdp++-2.0a/pdp++/src/css/css_builtin.cc	Sun Apr 30 22:02:11 2000
+@@ -2125,7 +2125,7 @@
+   String home = getenv("HOME");
+   taMisc::include_paths.AddUnique(home); // this is first on the list..
+ 
+-  String css_dir = "/usr/local/pdp++"; // default css home directory
++  String css_dir = PDPDESTDIR; // default css home directory
+   char* css_dir_env = getenv("CSSDIR");
+   if(css_dir_env != NULL)
+     css_dir = css_dir_env;

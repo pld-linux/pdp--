@@ -1,0 +1,10 @@
+--- pdp++-2.0a/pdp++/src/css/css_builtin.cc~	Thu Sep 24 20:48:19 1998
++++ pdp++-2.0a/pdp++/src/css/css_builtin.cc	Sun Apr 30 18:06:07 2000
+@@ -47,6 +47,7 @@
+ #include <ta/taiv_data.h>
+ #include <ta/ta_group.h>
+ 
++#define __USE_XOPEN
+ #include <unistd.h>
+ #include <values.h>
+ #include <stdio.h>

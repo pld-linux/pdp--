@@ -1,0 +1,11 @@
+--- pdp++-2.0a/pdp++/config/Makefile.LINUX~	Sun May  9 02:35:19 1999
++++ pdp++-2.0a/pdp++/config/Makefile.LINUX	Sun Apr 30 18:37:03 2000
+@@ -5,7 +5,7 @@
+ 
+ # define this to be where the libg++ (stream classes) headers
+ # are found
+-LIBG++_INCLUDE_DIR = -I/usr/include/linux -I/usr/include/g++-2
++LIBG++_INCLUDE_DIR = -I/usr/include/linux -I/usr/include/g++
+ 
+ MACH_FLAGS = 
+ # volatile not quite working yet..
