@@ -45,7 +45,7 @@ ln -sf iv-pdp-r2.0/src interviews
 
 cd iv-pdp-r2.0
 CXXFLAGS="%{rpmcflags} -fno-exceptions -fno-rtti"
-%configure
+%configure2_13
 %{__make}
 
 cd ../pdp++
