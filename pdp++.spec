@@ -51,10 +51,10 @@ make chkcpu include_dir lib_dir bin_dir Makefiles new_lib_h Maketa \
 	PDPDESTDIR=%{_datadir}/%{name} \
 	OPT_FLAG="$RPM_OPT_FLAGS -Wall -Winline -DPDPDESTDIR=\\\"%{_datadir}/%{name}\\\""
 
-install -m644 %{SOURCE3} src/ta/LINUX/ta_TA.cc
-install -m644 %{SOURCE3} src/ta/LINUX/ta_TA.ccx
-install -m644 %{SOURCE3} src/ta/ta_TA.cc
-install -m644 %{SOURCE3} src/ta/ta_TA.ccx
+install %{SOURCE3} src/ta/LINUX/ta_TA.cc
+install %{SOURCE3} src/ta/LINUX/ta_TA.ccx
+install %{SOURCE3} src/ta/ta_TA.cc
+install %{SOURCE3} src/ta/ta_TA.ccx
 
 make Libs LibsPass2 distBins \
 	LOCAL=$RPM_BUILD_DIR/%{name}-%{version} \
@@ -81,7 +81,7 @@ cp -a {config,css,demo,manual} $RPM_BUILD_ROOT%{_datadir}/pdp++/
 cp -a {ANNOUNCE*,C*,INSTALL,NEWS,README,TODO} $RPM_BUILD_ROOT%{_datadir}/pdp++/
 
 for i in defaults/* ; do
-	install -m644 $i $RPM_BUILD_ROOT%{_datadir}/pdp++/defaults/
+	install $i $RPM_BUILD_ROOT%{_datadir}/pdp++/defaults/
 done
 
 ln -s ../share/interviews/include $RPM_BUILD_ROOT%{_includedir}/interviews
@@ -89,19 +89,19 @@ ln -s ../share/interviews/include $RPM_BUILD_ROOT%{_includedir}/interviews
 cd $RPM_BUILD_ROOT%{_datadir}/pdp++
 
 mv -f css/demo/get_trn_epcs.cc css/demo/get_trn_epcs.cc.TMP
-sed 's#/usr/local/bin/css#%{_bindir}/css#' css/demo/get_trn_epcs.cc.TMP > css/demo/get_trn_epcs.cc
+sed 's#%{_prefix}/local/bin/css#%{_bindir}/css#' css/demo/get_trn_epcs.cc.TMP > css/demo/get_trn_epcs.cc
 rm -f css/demo/get_trn_epcs.cc.TMP
 
 mv -f css/tests/exec_test.css css/tests/exec_test.css.TMP
-sed 's#/usr/local/bin/css#%{_bindir}/css#' css/tests/exec_test.css.TMP >css/tests/exec_test.css
+sed 's#%{_prefix}/local/bin/css#%{_bindir}/css#' css/tests/exec_test.css.TMP >css/tests/exec_test.css
 rm -f css/tests/exec_test.css.TMP
 
 mv -f css/include/css_awk.css css/include/css_awk.css.TMP
-sed 's#/usr/local/bin/css#%{_bindir}/css#' css/include/css_awk.css.TMP > css/include/css_awk.css
+sed 's#%{_prefix}/local/bin/css#%{_bindir}/css#' css/include/css_awk.css.TMP > css/include/css_awk.css
 rm -f css/include/css_awk.css.TMP
 
 mv -f demo/css/get_trn_epcs.cc demo/css/get_trn_epcs.cc.TMP
-sed 's#/usr/local/bin/css#%{_bindir}/css#'  demo/css/get_trn_epcs.cc.TMP > demo/css/get_trn_epcs.cc
+sed 's#%{_prefix}/local/bin/css#%{_bindir}/css#' demo/css/get_trn_epcs.cc.TMP > demo/css/get_trn_epcs.cc
 rm -f demo/css/get_trn_epcs.cc.TMP
 
 rm -f manual/texi2html
