@@ -4,7 +4,7 @@ Name:		pdp++
 Group:		Development
 Group(pl):	Programowanie
 Version:	1.3
-Release:	1
+Release:	2
 License:	distributable
 Source0:	ftp://grey.colorado.edu/pub/oreilly/pdp++/%{name}_%{version}_src.tar.gz
 Source1:	ftp://grey.colorado.edu/pub/oreilly/pdp++/%{name}_%{version}_ivinc.tar.gz
