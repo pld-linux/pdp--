@@ -2,8 +2,6 @@ Summary:	PDP++ - neural network simulation software
 Summary(pl):	PDP++ - oprogramowanie do symulacji sieci neuronowych
 Name:		pdp++
 Group:		Development
-Group(de):	Entwicklung
-Group(pl):	Programowanie
 Version:	2.01
 Release:	1
 License:	distributable
