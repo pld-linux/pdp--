@@ -100,7 +100,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc pdp++/{ANNOUNCE*,CopyRight,NEWS,README,TODO}.gz
 %doc pdp++/manual/{*.ps.gz,html}
 %attr(755,root,root) %{_bindir}/*
-%attr(755,root,root) %{_libdir}/lib*.la
+%{_libdir}/lib*.la
 %attr(755,root,root) %{_libdir}/lib*.so
 %attr(755,root,root) %{_libdir}/lib*.so.*.*.*
 %{_includedir}/*
