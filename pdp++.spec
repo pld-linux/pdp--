@@ -45,7 +45,7 @@ cd pdp++
 CPU=LINUX; export CPU
 LD_LIBRARY_PATH=$RPM_BUILD_DIR/%{name}-%{version}/pdp++/lib/$CPU:$RPM_BUILD_DIR/%{name}-%{version}/interviews/lib/lib-g++/$CPU; export LD_LIBRARY_PATH
 
-make chkcpu include_dir lib_dir bin_dir Makefiles new_lib_h Maketa \
+%{__make} chkcpu include_dir lib_dir bin_dir Makefiles new_lib_h Maketa \
 	force_ta new_lib_h \
 	LOCAL=$RPM_BUILD_DIR/%{name}-%{version} \
 	PDPDESTDIR=%{_datadir}/%{name} \
@@ -56,7 +56,7 @@ install %{SOURCE3} src/ta/LINUX/ta_TA.ccx
 install %{SOURCE3} src/ta/ta_TA.cc
 install %{SOURCE3} src/ta/ta_TA.ccx
 
-make Libs LibsPass2 distBins \
+%{__make} Libs LibsPass2 distBins \
 	LOCAL=$RPM_BUILD_DIR/%{name}-%{version} \
 	PDPDESTDIR=%{_datadir}/%{name} \
 	OPT_FLAG="$RPM_OPT_FLAGS -Wall -Winline -DPDPDESTDIR=\\\"%{_datadir}/%{name}\\\""
