@@ -18,11 +18,11 @@ Patch3:		%{name}-strfile.patch
 Patch4:		%{name}-DESTDIR.patch
 Patch5:		%{name}-leabra.patch
 Patch6:		%{name}-FLT_MAX.patch
+BuildRequires:	XFree86-devel
+BuildRequires:	ed
 BuildRequires:	gcc-c++
 BuildRequires:	libstdc++-devel
-BuildRequires:	XFree86-devel
 BuildRequires:	ncurses-devel
-BuildRequires:	ed
 BuildRequires:	perl
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 ExclusiveArch:	%{ix86}
