@@ -1,0 +1,11 @@
+--- pdp++-2.01/pdp++/src/leabra/leabra.cc~	Sun Sep 17 21:33:33 2000
++++ pdp++-2.01/pdp++/src/leabra/leabra.cc	Sat Oct 14 00:59:12 2000
+@@ -668,7 +668,7 @@
+     u->thr += adapt_thr.t_dt * ((act.thr + adapt_thr.mx_d) - u->thr);
+ }
+ 
+-void LeabraUnitSpec::PhaseInit(LeabraUnit* u, LeabraLayer*, int phase) {
++void LeabraUnitSpec::PhaseInit(LeabraUnit* u, LeabraLayer* lay, int phase) {
+   if(!(u->ext_flag & Unit::TARG))
+     return;
+ 
