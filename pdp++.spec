@@ -27,8 +27,10 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 ExclusiveArch:	%{ix86}
 
 %description
+Neural network simulation software.
 
 %description -l pl
+Oprogramowanie do symulacji sieci neuronowych.
 
 %prep
 %setup -q -c -a 1 -a 2
@@ -67,7 +69,7 @@ cd iv-pdp-r2.0
 cd ../pdp++
 
 rm -f demo/bench/{pdp++bench/pdp++bench,aptest/[ap]test}
-rm -f lib/LINUX/*{hard,min,iberty}* 
+rm -f lib/LINUX/*{hard,min,iberty}*
 rm -f manual/html/.log
 
 install bin/LINUX/* $RPM_BUILD_ROOT%{_bindir}/
