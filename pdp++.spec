@@ -87,8 +87,6 @@ chmod 755 css/demo/get_trn_epcs.cc css/tests/exec_test.css \
 
 find $RPM_BUILD_ROOT -name '*~' -print | xargs rm -f
 
-gzip -9nf ANNOUNCE* CopyRight NEWS README TODO
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -97,8 +95,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc pdp++/{ANNOUNCE*,CopyRight,NEWS,README,TODO}.gz
-%doc pdp++/manual/{*.ps.gz,html}
+%doc pdp++/{ANNOUNCE*,CopyRight,NEWS,README,TODO}
+%doc pdp++/manual/{*.ps*,html}
 %attr(755,root,root) %{_bindir}/*
 %{_libdir}/lib*.la
 %attr(755,root,root) %{_libdir}/lib*.so
