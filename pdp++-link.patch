@@ -1,94 +1,95 @@
---- pdp++-2.0a/pdp++/src/bp/Makefile.in~	Fri Nov 10 00:48:30 1995
-+++ pdp++-2.0a/pdp++/src/bp/Makefile.in	Sun Apr 30 19:47:04 2000
+diff -ur pdp++-2.01.orig/pdp++/src/bp/Makefile.in pdp++-2.01/pdp++/src/bp/Makefile.in
+--- pdp++-2.01.orig/pdp++/src/bp/Makefile.in	Sat Jul  8 20:22:55 2000
++++ pdp++-2.01/pdp++/src/bp/Makefile.in	Fri Oct 13 16:08:25 2000
 @@ -15,7 +15,8 @@
  #OPT_FLAG =
  #endif
  
 -LIBS = -lpdp -ltamisc -livgraphic -lcss -ltypea -livmisc -lreadline -ltermcap\
 +LIBS = -lpdp -ltamisc -livgraphic -lcss -ltypea -livmisc -lreadline -lncurses \
-+	-L../../../../interviews/lib-g++/LINUX \
- 	 -ltastring $(IV_LIB) -lX11 $(IOS_LIB) $(IBERTY_LIB) $(GENERIC_LIB)
++	-L../../../../interviews/lib/.libs \
+ 	 -ltastring $(IV_LIB) $(X11_LIB) $(IOS_LIB) $(IBERTY_LIB) $(GENERIC_LIB)
  
  PROJNAME = bp
---- pdp++-2.0a/pdp++/src/bpso/Makefile.in~	Fri Nov 10 00:49:17 1995
-+++ pdp++-2.0a/pdp++/src/bpso/Makefile.in	Sun Apr 30 19:48:10 2000
+diff -ur pdp++-2.01.orig/pdp++/src/bpso/Makefile.in pdp++-2.01/pdp++/src/bpso/Makefile.in
+--- pdp++-2.01.orig/pdp++/src/bpso/Makefile.in	Fri Nov 10 00:49:17 1995
++++ pdp++-2.01/pdp++/src/bpso/Makefile.in	Fri Oct 13 16:08:44 2000
 @@ -16,7 +16,8 @@
  # endif
  
  LIBS = -lpdp_bp -lpdp_so -lpdp -ltamisc -livgraphic -lcss -ltypea -livmisc \
 -	 -lreadline -ltermcap -ltastring $(IV_LIB) -lX11 \
-+	-L../../../../interviews/lib-g++/LINUX \
++	-L../../../../interviews/lib/.libs \
 +	 -lreadline -lncurses -ltastring $(IV_LIB) -lX11 \
  	$(IOS_LIB) $(IBERTY_LIB) $(GENERIC_LIB)
  
  PROJNAME = bpso
---- pdp++-2.0a/pdp++/src/cs/Makefile.in~	Fri Nov 10 00:49:02 1995
-+++ pdp++-2.0a/pdp++/src/cs/Makefile.in	Sun Apr 30 19:48:42 2000
+diff -ur pdp++-2.01.orig/pdp++/src/cs/Makefile.in pdp++-2.01/pdp++/src/cs/Makefile.in
+--- pdp++-2.01.orig/pdp++/src/cs/Makefile.in	Sat Jul  8 20:23:11 2000
++++ pdp++-2.01/pdp++/src/cs/Makefile.in	Fri Oct 13 16:09:03 2000
 @@ -16,7 +16,8 @@
  # endif
  
  
 -LIBS = -lpdp -ltamisc -livgraphic -lcss -ltypea -livmisc -lreadline -ltermcap\
-+LIBS = -lpdp -ltamisc -livgraphic -lcss -ltypea -livmisc -lreadline -lncurses \
-+	-L../../../../interviews/lib-g++/LINUX \
- 	 -ltastring $(IV_LIB) -lX11 $(IOS_LIB) $(IBERTY_LIB) $(GENERIC_LIB)
++LIBS = -lpdp -ltamisc -livgraphic -lcss -ltypea -livmisc -lreadline -lncurses\
++	-L../../../../interviews/lib/.libs \
+ 	 -ltastring $(IV_LIB) $(X11_LIB) $(IOS_LIB) $(IBERTY_LIB) $(GENERIC_LIB)
  
  PROJNAME = cs
---- pdp++-2.0a/pdp++/src/leabra/Makefile.in~	Sat Nov 22 01:19:33 1997
-+++ pdp++-2.0a/pdp++/src/leabra/Makefile.in	Sun Apr 30 19:49:39 2000
+diff -ur pdp++-2.01.orig/pdp++/src/css/Makefile.in pdp++-2.01/pdp++/src/css/Makefile.in
+--- pdp++-2.01.orig/pdp++/src/css/Makefile.in	Sun Jul 23 04:43:25 2000
++++ pdp++-2.01/pdp++/src/css/Makefile.in	Fri Oct 13 16:13:51 2000
+@@ -7,7 +7,8 @@
+ # reset opt flags to not do anything for linux, crashes with dynamic linking
+ #OPT_FLAGS=
+ 
+-LIBS = -ltamisc -livgraphic -ltypea -livmisc -lreadline -ltermcap -ltastring \
++LIBS = -ltamisc -livgraphic -ltypea -livmisc -lreadline -lncurses\
++	-L../../../../interviews/lib/.libs -ltastring \
+ 	$(IV_LIB) $(X11_LIB) $(IOS_LIB) $(IBERTY_LIB) $(GENERIC_LIB)
+ 
+ PROJNAME = css
+diff -ur pdp++-2.01.orig/pdp++/src/iv_graphic/Makefile.in pdp++-2.01/pdp++/src/iv_graphic/Makefile.in
+--- pdp++-2.01.orig/pdp++/src/iv_graphic/Makefile.in	Tue Nov  5 23:57:17 1996
++++ pdp++-2.01/pdp++/src/iv_graphic/Makefile.in	Fri Oct 13 16:14:52 2000
+@@ -10,7 +10,7 @@
+ IVLIB = -lIV
+ IVDEBUGLIB = -lIVd
+ 
+-LIBS =  $(IVLIB) -lX11 -lm 
++LIBS = -L../../../../interviews/lib/.libs $(IVLIB) -lX11 -lm 
+ DEBUGLIBS =  $(IVDEBUGLIB) -lX11 -lm 
+ 
+ PROJNAME = iv_graphic
+diff -ur pdp++-2.01.orig/pdp++/src/iv_misc/Makefile.in pdp++-2.01/pdp++/src/iv_misc/Makefile.in
+--- pdp++-2.01.orig/pdp++/src/iv_misc/Makefile.in	Mon Jun 19 17:10:03 2000
++++ pdp++-2.01/pdp++/src/iv_misc/Makefile.in	Fri Oct 13 16:15:05 2000
+@@ -9,7 +9,7 @@
+ 
+ # tastring needed by dynalabel
+ 
+-LIBS =  $(IVLIB) -lX11 -lm -ltastring
++LIBS = -L../../../../interviews/lib/.libs $(IVLIB) -lX11 -lm -ltastring
+ DEBUGLIBS =  $(IVDEBUGLIB) -lX11 -lm 
+ 
+ PROJNAME = iv_misc
+diff -ur pdp++-2.01.orig/pdp++/src/leabra/Makefile.in pdp++-2.01/pdp++/src/leabra/Makefile.in
+--- pdp++-2.01.orig/pdp++/src/leabra/Makefile.in	Sat Jul  8 20:23:57 2000
++++ pdp++-2.01/pdp++/src/leabra/Makefile.in	Fri Oct 13 16:09:16 2000
 @@ -13,7 +13,8 @@
  AR_CMD = $(SIM_NONSHARED_AR_CMD)
  LIB_EXT = $(SIM_NONSHARED_LIB_EXT)
  
 -LIBS = -lpdp -ltamisc -livgraphic -lcss -ltypea -livmisc -lreadline -ltermcap\
-+LIBS = -lpdp -ltamisc -livgraphic -lcss -ltypea -livmisc -lreadline -lncurses \
-+	-L../../../../interviews/lib-g++/LINUX \
- 	 -ltastring $(IV_LIB) -lX11 $(IOS_LIB) $(IBERTY_LIB) $(GENERIC_LIB)
++LIBS = -lpdp -ltamisc -livgraphic -lcss -ltypea -livmisc -lreadline -lncurses\
++	-L../../../../interviews/lib/.libs \
+ 	 -ltastring $(IV_LIB) $(X11_LIB) $(IOS_LIB) $(IBERTY_LIB) $(GENERIC_LIB)
  
  PROJNAME = leabra
---- pdp++-1.3/pdp++/src/pdp/Makefile.in~	Mon May  1 01:57:37 2000
-+++ pdp++-1.3/pdp++/src/pdp/Makefile.in	Mon May  1 04:39:43 2000
-@@ -18,10 +18,12 @@
- IVLIB = -lIV
- IVDEBUGLIB = -lIVd
- 
--LIBS = -lpdp_bp -ltamisc -livgraphic -lcss -ltypea -livmisc -lreadline -ltermcap\
-+LIBS = -lpdp_bp -ltamisc -livgraphic -lcss -ltypea -livmisc -lreadline -lncurses \
-+	-L../../../../interviews/lib-g++/LINUX \
- 	 -ltastring $(IVLIB) -lX11 $(IOS_LIB) $(IBERTY_LIB) $(GENERIC_LIB)
- 
--EXTERNAL_LIBS = -ltamisc -livgraphic -lcss -ltypea -livmisc -lreadline -ltermcap\
-+EXTERNAL_LIBS = -ltamisc -livgraphic -lcss -ltypea -livmisc -lreadline -lncurses \
-+	-L../../../../interviews/lib-g++/LINUX \
-   	        -ltastring $(IVLIB) -lX11 $(IOS_LIB) $(IBERTY_LIB) $(GENERIC_LIB)
- PROJNAME = pdp
- PROJDIR = pdp
---- pdp++-2.0a/pdp++/src/so/Makefile.in~	Fri Nov 10 00:48:47 1995
-+++ pdp++-2.0a/pdp++/src/so/Makefile.in	Sun Apr 30 19:50:45 2000
-@@ -15,7 +15,8 @@
- # OPT_FLAG =
- # endif
- 
--LIBS = -lpdp -ltamisc -livgraphic -lcss -ltypea -livmisc -lreadline -ltermcap\
-+LIBS = -lpdp -ltamisc -livgraphic -lcss -ltypea -livmisc -lreadline -lncurses \
-+	-L../../../../interviews/lib-g++/LINUX \
- 	 -ltastring -lIV -lX11 $(IOS_LIB) $(IBERTY_LIB) $(GENERIC_LIB)
- 
- PROJNAME = so
---- pdp++-2.0a/pdp++/src/ta_misc/Makefile.in~	Tue Nov  5 23:57:17 1996
-+++ pdp++-2.0a/pdp++/src/ta_misc/Makefile.in	Sun Apr 30 19:51:15 2000
-@@ -7,7 +7,8 @@
- # reset opt flags to not do anything for linux, crashes with dynamic linking
- #OPT_FLAGS=
- 
--LIBS =  -ltamisc -livgraphic -lcss -ltypea -livmisc -lreadline -ltermcap -ltastring\
-+LIBS =  -ltamisc -livgraphic -lcss -ltypea -livmisc -lreadline -lncurses -ltastring\
-+	-L../../../../interviews/lib-g++/LINUX \
- 	$(IV_LIB) -lX11 $(IOS_LIB) $(IBERTY_LIB) $(GENERIC_LIB)
- 
- PROJNAME = ta_misc
---- pdp++-2.0a/pdp++/src/maketa/Makefile.in~	Wed Feb 25 19:00:20 1998
-+++ pdp++-2.0a/pdp++/src/maketa/Makefile.in	Sun Apr 30 19:52:24 2000
+diff -ur pdp++-2.01.orig/pdp++/src/maketa/Makefile.in pdp++-2.01/pdp++/src/maketa/Makefile.in
+--- pdp++-2.01.orig/pdp++/src/maketa/Makefile.in	Wed Feb 25 19:00:20 1998
++++ pdp++-2.01/pdp++/src/maketa/Makefile.in	Fri Oct 13 16:13:08 2000
 @@ -8,7 +8,7 @@
  #OPT_FLAGS = -O
  
@@ -98,8 +99,53 @@
  PROJNAME = maketa
  PROJDIR	 = maketa
  
---- pdp++-2.0a/pdp++/src/ta/Makefile.in~	Wed Nov  6 00:42:47 1996
-+++ pdp++-2.0a/pdp++/src/ta/Makefile.in	Sun Apr 30 19:53:15 2000
+diff -ur pdp++-2.01.orig/pdp++/src/moe/Makefile.in pdp++-2.01/pdp++/src/moe/Makefile.in
+--- pdp++-2.01.orig/pdp++/src/moe/Makefile.in	Wed Apr  3 23:47:03 1996
++++ pdp++-2.01/pdp++/src/moe/Makefile.in	Fri Oct 13 16:15:36 2000
+@@ -10,7 +10,8 @@
+ AR_CMD = $(SIM_NONSHARED_AR_CMD)
+ LIB_EXT = $(SIM_NONSHARED_LIB_EXT)
+ 
+-LIBS = -lpdp_bp -lpdp -ltamisc -livgraphic -lcss -ltypea -livmisc -lreadline -ltermcap\
++LIBS = -lpdp_bp -lpdp -ltamisc -livgraphic -lcss -ltypea -livmisc -lreadline -lncurses\
++	-L../../../../interviews/lib/.libs \
+ 	 -ltastring $(IV_LIB) -lX11 $(IOS_LIB) $(IBERTY_LIB) $(GENERIC_LIB)
+ 
+ PROJNAME = moe
+diff -ur pdp++-2.01.orig/pdp++/src/pdp/Makefile.in pdp++-2.01/pdp++/src/pdp/Makefile.in
+--- pdp++-2.01.orig/pdp++/src/pdp/Makefile.in	Sat Jul  8 20:22:39 2000
++++ pdp++-2.01/pdp++/src/pdp/Makefile.in	Fri Oct 13 16:15:54 2000
+@@ -18,10 +18,12 @@
+ IVLIB = -lIVd
+ IVDEBUGLIB = -lIVd
+ 
+-LIBS = -lpdp_bp -ltamisc -livgraphic -lcss -ltypea -livmisc -lreadline -ltermcap\
++LIBS = -lpdp_bp -ltamisc -livgraphic -lcss -ltypea -livmisc -lreadline -lncurses\
++	-L../../../../interviews/lib/.libs \
+ 	 -ltastring $(IVLIB) $(X11_LIB) $(IOS_LIB) $(IBERTY_LIB) $(GENERIC_LIB)
+ 
+-EXTERNAL_LIBS = -ltamisc -livgraphic -lcss -ltypea -livmisc -lreadline -ltermcap\
++EXTERNAL_LIBS = -ltamisc -livgraphic -lcss -ltypea -livmisc -lreadline -lncurses\
++		-L../../../../interviews/lib/.libs \
+ 	        -ltastring $(IVLIB) $(X11_LIB) $(IOS_LIB) $(IBERTY_LIB) $(GENERIC_LIB)
+ PROJNAME = pdp
+ PROJDIR = pdp
+diff -ur pdp++-2.01.orig/pdp++/src/so/Makefile.in pdp++-2.01/pdp++/src/so/Makefile.in
+--- pdp++-2.01.orig/pdp++/src/so/Makefile.in	Sat Jul  8 20:23:28 2000
++++ pdp++-2.01/pdp++/src/so/Makefile.in	Fri Oct 13 16:11:04 2000
+@@ -15,7 +15,8 @@
+ # OPT_FLAG =
+ # endif
+ 
+-LIBS = -lpdp -ltamisc -livgraphic -lcss -ltypea -livmisc -lreadline -ltermcap\
++LIBS = -lpdp -ltamisc -livgraphic -lcss -ltypea -livmisc -lreadline -lncurses\
++	-L../../../../interviews/lib/.libs \
+ 	 -ltastring $(IV_LIB) $(X11_LIB) $(IOS_LIB) $(IBERTY_LIB) $(GENERIC_LIB)
+ 
+ PROJNAME = so
+diff -ur pdp++-2.01.orig/pdp++/src/ta/Makefile.in pdp++-2.01/pdp++/src/ta/Makefile.in
+--- pdp++-2.01.orig/pdp++/src/ta/Makefile.in	Mon Jul 31 03:53:19 2000
++++ pdp++-2.01/pdp++/src/ta/Makefile.in	Fri Oct 13 16:13:21 2000
 @@ -8,7 +8,7 @@
  #OPT_FLAGS = -O
  
@@ -109,24 +155,29 @@
  PROJNAME = ta
  PROJDIR	 = ta
  
---- pdp++-2.0a/pdp++/src/css/Makefile.in~	Fri May 15 23:31:45 1998
-+++ pdp++-2.0a/pdp++/src/css/Makefile.in	Sun Apr 30 18:28:01 2000
-@@ -7,7 +7,7 @@
+diff -ur pdp++-2.01.orig/pdp++/src/ta_misc/Makefile.in pdp++-2.01/pdp++/src/ta_misc/Makefile.in
+--- pdp++-2.01.orig/pdp++/src/ta_misc/Makefile.in	Tue May 23 08:31:30 2000
++++ pdp++-2.01/pdp++/src/ta_misc/Makefile.in	Fri Oct 13 16:11:26 2000
+@@ -7,7 +7,8 @@
  # reset opt flags to not do anything for linux, crashes with dynamic linking
  #OPT_FLAGS=
  
--LIBS = -ltamisc -livgraphic -ltypea -livmisc -lreadline -ltermcap -ltastring \
-+LIBS = -ltamisc -livgraphic -ltypea -livmisc -lreadline -lncurses -ltastring \
+-LIBS =  -ltamisc -livgraphic -lcss -ltypea -livmisc -lreadline -ltermcap -ltastring\
++LIBS =  -ltamisc -livgraphic -lcss -ltypea -livmisc -lreadline -lncurses\
++	-L../../../../interviews/lib/.libs -ltastring\
  	$(IV_LIB) -lX11 $(IOS_LIB) $(IBERTY_LIB) $(GENERIC_LIB)
  
- PROJNAME = css
---- pdp++-2.0a/pdp++/src/css/Makefile.in~	Sun Apr 30 18:51:09 2000
-+++ pdp++-2.0a/pdp++/src/css/Makefile.in	Sun Apr 30 19:18:49 2000
-@@ -8,6 +8,7 @@
- #OPT_FLAGS=
+ PROJNAME = ta_misc
+diff -ur pdp++-2.01.orig/pdp++/src/xcss/Makefile.in pdp++-2.01/pdp++/src/xcss/Makefile.in
+--- pdp++-2.01.orig/pdp++/src/xcss/Makefile.in	Mon Jul 31 01:11:29 2000
++++ pdp++-2.01/pdp++/src/xcss/Makefile.in	Fri Oct 13 16:16:33 2000
+@@ -15,7 +15,8 @@
+ AR_CMD = $(SIM_NONSHARED_AR_CMD)
+ LIB_EXT = $(SIM_NONSHARED_LIB_EXT)
  
- LIBS = -ltamisc -livgraphic -ltypea -livmisc -lreadline -lncurses -ltastring \
-+	-L../../../../interviews/lib-g++/LINUX \
- 	$(IV_LIB) -lX11 $(IOS_LIB) $(IBERTY_LIB) $(GENERIC_LIB)
+-LIBS = -ltamisc -livgraphic -lcss -ltypea -livmisc -lreadline -ltermcap\
++LIBS = -ltamisc -livgraphic -lcss -ltypea -livmisc -lreadline -lncurses\
++	-L../../../../interviews/lib/.libs \
+ 	 -ltastring $(IV_LIB) $(X11_LIB) $(IOS_LIB) $(IBERTY_LIB) $(GENERIC_LIB)
  
- PROJNAME = css
+ PROJNAME = xcss
