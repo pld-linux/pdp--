@@ -6,8 +6,11 @@ Version:	2.01
 Release:	1
 License:	distributable
 Source0:	ftp://grey.colorado.edu/pub/oreilly/pdp++/%{name}_%{version}_src.tar.gz
+# Source0-md5:	626d2f517438a063ec3e2e3593fdb06a
 Source1:	ftp://grey.colorado.edu/pub/oreilly/pdp++/%{name}_2.0_ext.tar.gz
+# Source1-md5:	f98e57f9dceeac972eb7272e1b9d81bd
 Source2:	ftp://grey.colorado.edu/pub/oreilly/pdp++/iv-pdp-r2.0.tar.gz
+# Source2-md5:	b532ca00a4662ba8fef0c111e61831ed
 Patch0:		%{name}-xopen.patch
 Patch1:		%{name}-link.patch
 Patch2:		%{name}-g++.patch
