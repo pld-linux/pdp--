@@ -2,6 +2,7 @@ Summary:	PDP++ - neural network simulation software
 Summary(pl):	PDP++ - oprogramowanie do symulacji sieci neuronowych
 Name:		pdp++
 Group:		Development
+Group(de):	Entwicklung
 Group(pl):	Programowanie
 Version:	2.01
 Release:	1
@@ -9,17 +10,18 @@ License:	distributable
 Source0:	ftp://grey.colorado.edu/pub/oreilly/pdp++/%{name}_%{version}_src.tar.gz
 Source1:	ftp://grey.colorado.edu/pub/oreilly/pdp++/%{name}_2.0_ext.tar.gz
 Source2:	ftp://grey.colorado.edu/pub/oreilly/pdp++/iv-pdp-r2.0.tar.gz
-Patch0:		pdp++-xopen.patch
-Patch1:		pdp++-link.patch
-Patch2:		pdp++-g++.patch
-Patch3:		pdp++-strfile.patch
-Patch4:		pdp++-DESTDIR.patch
-Patch5:		pdp++-leabra.patch
+Patch0:		%{name}-xopen.patch
+Patch1:		%{name}-link.patch
+Patch2:		%{name}-g++.patch
+Patch3:		%{name}-strfile.patch
+Patch4:		%{name}-DESTDIR.patch
+Patch5:		%{name}-leabra.patch
 BuildRequires:	gcc-c++
 BuildRequires:	libstdc++-devel
 BuildRequires:	XFree86-devel
 BuildRequires:	ncurses-devel
 BuildRequires:	ed
+BuildRequires:	perl
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 ExclusiveArch:	%{ix86}
 
@@ -40,7 +42,7 @@ ExclusiveArch:	%{ix86}
 ln -sf iv-pdp-r2.0/src interviews
 
 cd iv-pdp-r2.0
-CXXFLAGS="-fno-exceptions -fno-rtti $RPM_OPT_FLAGS" ; export CXXFLAGS
+CXXFLAGS="%{rpmcflags} -fno-exceptions -fno-rtti"
 %configure
 %{__make}
 
@@ -51,7 +53,7 @@ LD_LIBRARY_PATH=$RPM_BUILD_DIR/%{name}-%{version}/pdp++/lib/$CPU:$RPM_BUILD_DIR/
 %{__make} world \
 	LOCAL=$RPM_BUILD_DIR/%{name}-%{version} \
 	PDPDESTDIR=%{_datadir}/%{name} \
-	OPT_FLAG="$RPM_OPT_FLAGS -Wall -Winline -DPDPDESTDIR=\\\"%{_datadir}/%{name}\\\""
+	OPT_FLAG="%{rpmcflags} -Wall -Winline -DPDPDESTDIR=\\\"%{_datadir}/%{name}\\\""
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -66,8 +68,8 @@ rm -f demo/bench/{pdp++bench/pdp++bench,aptest/[ap]test}
 rm -f lib/LINUX/*{hard,min,iberty}* 
 rm -f manual/html/.log
 
-install -s bin/LINUX/* $RPM_BUILD_ROOT%{_bindir}/
-install -s lib/LINUX/*.so $RPM_BUILD_ROOT%{_libdir}/
+install bin/LINUX/* $RPM_BUILD_ROOT%{_bindir}/
+install lib/LINUX/*.so $RPM_BUILD_ROOT%{_libdir}/
 
 cp -a manual/info/{pdp,ta}* $RPM_BUILD_ROOT%{_infodir}/
 cp -a {config,css,defaults,demo} $RPM_BUILD_ROOT%{_datadir}/pdp++/
@@ -88,8 +90,8 @@ gzip -9nf ANNOUNCE* CopyRight NEWS README TODO
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
+%post	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
