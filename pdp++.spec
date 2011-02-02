@@ -105,6 +105,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/lib*.so
 %attr(755,root,root) %{_libdir}/lib*.so.*.*.*
 %{_includedir}/*
-%{_infodir}/*
+%{_infodir}/*.info*
 %dir %{_datadir}/pdp++
 %attr(-,root,root) %{_datadir}/pdp++/*
